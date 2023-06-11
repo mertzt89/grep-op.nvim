@@ -1,12 +1,9 @@
-local plugin = require("grepop")
+local greopop = require("grepop")
 
 describe("setup", function()
-  it("works with default", function()
-    assert("my first function with param = Hello!", plugin.hello())
-  end)
-
-  it("works with custom var", function()
-    plugin.setup({ opt = "custom" })
-    assert("my first function with param = custom", plugin.hello())
+  it("Setup works", function()
+    greopop.setup()
+    assert(_G.telescope_grep_op, "Operator Exists")
+    assert(_G.telescope_grep_all_op, "All Operator Exists")
   end)
 end)
